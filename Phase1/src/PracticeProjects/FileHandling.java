@@ -7,13 +7,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
 public class FileHandling {
-	
-
-	    public static void main(String[] args) {
-	        // Specify the file name
+public static void main(String[] args) {
 	        String fileName = "sample.txt";
-
-	        // Step 1: Writing to a file
 	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
 	            writer.write("Hi!");
 	            writer.newLine();
@@ -21,8 +16,6 @@ public class FileHandling {
 	        } catch (IOException e) {
 	            System.err.println("Error writing to the file: " + e.getMessage());
 	        }
-
-	        // Step 2: Reading from the file
 	        System.out.println("Reading file");
 	        try (BufferedReader reader = new BufferedReader(new FileReader(fileName)) ) {
 	            String line;
@@ -32,8 +25,6 @@ public class FileHandling {
 	        } catch (IOException e) {
 	            System.err.println("Error in reading the file: " + e.getMessage());
 	        }
-
-	        // Step 3: Appending to the file
 	        System.out.println("Appending to the file");
 	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true)) ) {
 	            writer.write("\nWelcome to File Handling....");
@@ -41,8 +32,6 @@ public class FileHandling {
 	        } catch (IOException e) {
 	            System.err.println("Error in appending to the file: " + e.getMessage());
 	        }
-
-	        // Step 4: Reading from the file after appending
 	        System.out.println("Reading from the file after appending");
 	        try (BufferedReader reader = new BufferedReader(new FileReader(fileName)) ) {
 	            String line;
