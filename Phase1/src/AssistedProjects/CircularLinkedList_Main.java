@@ -15,15 +15,17 @@ class CircularLinkedList {
     CircularLinkedList() {
         head = null;
     }
+
+    // Method to insert a new node in a sorted manner
     void insertSorted(int data) {
         Node newNode = new Node(data);
 
         if (head == null) {
             head = newNode;
-            head.next = head; 
+            head.next = head; // Point the new node to itself for circularity
         } else if (data < head.data) {
             newNode.next = head;
-            head = newNode;
+            head = newNode; // Update the head
         } else {
             Node current = head;
             while (current.next != head && current.next.data < data) {
@@ -33,6 +35,8 @@ class CircularLinkedList {
             current.next = newNode;
         }
     }
+
+    // Method to display the circular linked list
     void display() {
         if (head == null) {
             System.out.println("The circular linked list is empty.");
@@ -49,7 +53,7 @@ class CircularLinkedList {
     }
 }
 
-public class CircularLinkedListMain {
+public class CircularLinkedList_Main {
     public static void main(String[] args) {
         CircularLinkedList circularList = new CircularLinkedList();
 
@@ -63,3 +67,4 @@ public class CircularLinkedListMain {
         circularList.display();
     }
 }
+
